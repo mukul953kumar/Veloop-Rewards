@@ -37,3 +37,5 @@ yarn-error.log*
 # Task files (if you want to keep them local)
 task.md
 architecture.md
+design_spec.md
+demo.png
