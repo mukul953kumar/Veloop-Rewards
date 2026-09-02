@@ -10,6 +10,12 @@
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
   display: flex;
   align-items: center;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.bannerCard:hover {
+  border-color: rgba(245, 158, 11, 0.35);
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.55), 0 0 30px rgba(245, 158, 11, 0.06);
 }
 
 .cornerBadge {
@@ -62,10 +68,16 @@
   text-transform: uppercase;
   width: fit-content;
   margin-bottom: 0.85rem;
+  transition: transform var(--transition-fast);
+}
+
+.stageBadge:hover {
+  transform: scale(1.03);
 }
 
 .stageIcon {
   font-size: 0.85rem;
+  color: #f59e0b;
 }
 
 .heading {
@@ -103,6 +115,11 @@
   font-weight: 600;
   width: fit-content;
   margin-bottom: 1.35rem;
+  transition: border-color var(--transition-fast);
+}
+
+.prizePill:hover {
+  border-color: rgba(245, 158, 11, 0.6);
 }
 
 .prizeHighlight {
@@ -137,6 +154,14 @@
   box-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
   transform: translateY(-2px);
   color: #ffffff;
+}
+
+.ctaIcon {
+  transition: transform var(--transition-normal);
+}
+
+.ctaButton:hover .ctaIcon {
+  transform: translateX(4px);
 }
 
 .visualColumn {

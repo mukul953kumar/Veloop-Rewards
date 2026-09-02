@@ -38,7 +38,7 @@ function LeaderboardBanner({ data = leaderboardData, onAction }) {
             onClick={onAction}
           >
             <span>{data.ctaText || 'Check Rankings'}</span>
-            <ArrowRight size={16} />
+            <ArrowRight size={16} className={styles.ctaIcon} />
           </button>
         </div>
 
