@@ -1,27 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Navbar from './components/common/Navbar/Navbar';
+import PreviewController from './components/common/PreviewController/PreviewController';
+import LeaderboardBanner from './components/banners/LeaderboardBanner/LeaderboardBanner';
+import Footer from './components/common/Footer/Footer';
 import styles from './App.module.css';
 
 function App() {
+  const [viewportMode, setViewportMode] = useState('desktop');
+
+  const getViewportClass = () => {
+    switch (viewportMode) {
+      case 'tablet':
+        return styles.viewportTablet;
+      case 'mobile':
+        return styles.viewportMobile;
+      default:
+        return styles.viewportDesktop;
+    }
+  };
+
   return (
     <div className={styles.appWrapper}>
+      <Navbar />
+
       <main className={styles.mainContent}>
         <div className="banner-container">
-          <header className={styles.heroHeader}>
-            <div className={styles.heroBadge}>VELOP Rewards Platform</div>
-            <h1 className={styles.heroTitle}>Engage, Earn & Compete</h1>
-            <p className={styles.heroSubtitle}>
-              Interactive reward banners designed for maximum engagement and seamless user experience.
-            </p>
-          </header>
+          <PreviewController
+            currentMode={viewportMode}
+            onModeChange={setViewportMode}
+          />
 
-          <section className={styles.bannersList}>
-            <div className={styles.emptyStateCard}>
-              <h2 className={styles.emptyStateTitle}>Day 01 Setup Complete</h2>
-              <p>Project foundation, design system variables, and responsive container structure are ready.</p>
-            </div>
-          </section>
+          <div className={`${styles.viewportWrapper} ${getViewportClass()}`}>
+            <section className={styles.bannersList}>
+              <LeaderboardBanner />
+            </section>
+          </div>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 }

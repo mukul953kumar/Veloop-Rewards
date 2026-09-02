@@ -1,0 +1,201 @@
+.bannerCard {
+  position: relative;
+  width: 100%;
+  min-height: 410px;
+  max-height: 450px;
+  border-radius: var(--radius-lg);
+  background: radial-gradient(circle at 85% 30%, rgba(245, 158, 11, 0.08) 0%, rgba(27, 30, 50, 0.95) 45%, #151726 100%);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+}
+
+.cornerBadge {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  z-index: 10;
+}
+
+.bannerGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 2.5rem 3rem 2.5rem 4.5rem;
+  gap: 2rem;
+}
+
+.contentColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 5;
+}
+
+.stageBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #fbbf24;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  width: fit-content;
+  margin-bottom: 0.85rem;
+}
+
+.stageIcon {
+  font-size: 0.85rem;
+}
+
+.heading {
+  font-size: clamp(1.75rem, 2.8vw, 2.35rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.titleHighlight {
+  color: #f59e0b;
+  display: block;
+}
+
+.description {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #94a3b8;
+  margin-bottom: 1.15rem;
+  max-width: 480px;
+}
+
+.prizePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-pill);
+  background: rgba(15, 17, 28, 0.7);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #e2e8f0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  width: fit-content;
+  margin-bottom: 1.35rem;
+}
+
+.prizeHighlight {
+  color: #f59e0b;
+  font-weight: 700;
+}
+
+.prizeIcon {
+  color: #f59e0b;
+  font-size: 0.9rem;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-sm);
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.5);
+  color: #fbbf24;
+  font-size: 0.92rem;
+  font-weight: 700;
+  width: fit-content;
+  transition: all var(--transition-normal);
+}
+
+.ctaButton:hover {
+  background: rgba(245, 158, 11, 0.18);
+  border-color: #f59e0b;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.visualColumn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+  z-index: 5;
+}
+
+@media (max-width: 991px) {
+  .bannerCard {
+    min-height: 380px;
+    max-height: 540px;
+  }
+
+  .bannerGrid {
+    grid-template-columns: 1fr;
+    padding: 2.25rem 2rem 2rem 3.5rem;
+    gap: 1.25rem;
+  }
+
+  .description {
+    margin-bottom: 0.85rem;
+    max-width: 100%;
+  }
+
+  .prizePill {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .bannerCard {
+    min-height: 330px;
+    max-height: 520px;
+  }
+
+  .bannerGrid {
+    padding: 1.5rem 1.25rem 1.5rem 3rem;
+    gap: 1rem;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 0.82rem;
+  }
+
+  .prizePill {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .ctaButton {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.85rem;
+  }
+}

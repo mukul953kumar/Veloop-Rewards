@@ -1,0 +1,74 @@
+.previewBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.previewInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.previewLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.modeToggles {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-primary);
+  padding: 0.25rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.toggleBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: calc(var(--radius-sm) - 2px);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: var(--transition-fast);
+}
+
+.toggleBtn:hover {
+  color: var(--text-primary);
+}
+
+.toggleActive {
+  background-color: var(--bg-surface-elevated);
+  color: var(--text-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.viewportFrame {
+  width: 100%;
+  margin: 0 auto;
+  transition: max-width var(--transition-normal);
+}
+
+.frameDesktop {
+  max-width: 100%;
+}
+
+.frameTablet {
+  max-width: 768px;
+}
+
+.frameMobile {
+  max-width: 420px;
+}
