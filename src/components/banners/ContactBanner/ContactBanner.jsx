@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { MessageCircle, Mail, Copy, Check, BookOpen, Send, ChevronRight, UserCheck } from 'lucide-react';
+import { MessageCircle, Mail, Copy, Check, BookOpen, ChevronRight, UserCheck } from 'lucide-react';
 import ContactVisual from './ContactVisual';
+import ContactModal from './ContactModal';
 import { contactData } from '../../../data/rewardsData';
 import styles from './ContactBanner.module.css';
 
-function ContactBanner({ data = contactData, onAction }) {
+function ContactBanner({ data = contactData, onAction, onOpenSupport }) {
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalTab, setModalTab] = useState('message');
 
   const handleCopyEmail = async () => {
     try {
@@ -24,9 +27,24 @@ function ContactBanner({ data = contactData, onAction }) {
     }
   };
 
-  const handleCtaClick = () => {
+  const handleOpenModal = (tab = 'message') => {
+    if (onOpenSupport) {
+      onOpenSupport(tab);
+    } else {
+      setModalTab(tab);
+      setIsModalOpen(true);
+    }
     if (onAction) {
       onAction();
+    }
+  };
+
+  const handleLinkClick = (e, label) => {
+    e.preventDefault();
+    if (label.toLowerCase().includes('help')) {
+      handleOpenModal('faq');
+    } else {
+      handleOpenModal('message');
     }
   };
 
@@ -58,7 +76,7 @@ function ContactBanner({ data = contactData, onAction }) {
           <button
             type="button"
             className={styles.ctaButton}
-            onClick={handleCtaClick}
+            onClick={() => handleOpenModal('message')}
           >
             <span>{data.ctaText || 'Contact Support'}</span>
             <MessageCircle size={18} className={styles.ctaIcon} />
@@ -66,7 +84,7 @@ function ContactBanner({ data = contactData, onAction }) {
         </div>
 
         <div className={styles.visualColumn}>
-          <ContactVisual />
+          <ContactVisual onOpenSupport={handleOpenModal} />
         </div>
 
         <div className={styles.actionColumn}>
@@ -109,9 +127,7 @@ function ContactBanner({ data = contactData, onAction }) {
                   key={link.label}
                   href={link.href}
                   className={styles.quickLinkItem}
-                  onClick={(e) => {
-                    e.preventDefault();
-                  }}
+                  onClick={(e) => handleLinkClick(e, link.label)}
                 >
                   <div className={styles.linkLeft}>
                     {getLinkIcon(link.label)}
@@ -124,6 +140,14 @@ function ContactBanner({ data = contactData, onAction }) {
           </div>
         </div>
       </div>
+
+      {!onOpenSupport && (
+        <ContactModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          initialTab={modalTab}
+        />
+      )}
     </article>
   );
 }

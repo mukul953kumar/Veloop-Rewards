@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './ContactVisual.module.css';
 
-function ContactVisual() {
+function ContactVisual({ onOpenSupport }) {
+  const [activeHint, setActiveHint] = useState('');
+
+  const handleBubbleClick = (type) => {
+    if (onOpenSupport) {
+      onOpenSupport(type === 'left' ? 'message' : 'faq');
+    }
+  };
+
   return (
     <div className={styles.visualWrapper}>
       <div className={styles.glowBackdrop}></div>
 
       <div className={styles.visualContent}>
+        {activeHint && (
+          <div className={styles.interactiveHint}>
+            {activeHint}
+          </div>
+        )}
+
         <svg
           className={styles.characterSvg}
           viewBox="0 0 340 280"
@@ -58,7 +72,13 @@ function ContactVisual() {
             </filter>
           </defs>
 
-          <g className={styles.bubbleLeft} filter="url(#shadowBubble)">
+          <g
+            className={styles.bubbleLeft}
+            filter="url(#shadowBubble)"
+            onClick={() => handleBubbleClick('message')}
+            onMouseEnter={() => setActiveHint('Click to submit a question')}
+            onMouseLeave={() => setActiveHint('')}
+          >
             <rect x="22" y="70" width="70" height="46" rx="14" fill="url(#bubbleBlueGrad)" />
             <path d="M42 116 L34 126 L52 116 Z" fill="#1d4ed8" />
             <circle cx="44" cy="93" r="4" fill="#ffffff" className={styles.dot1} />
@@ -66,7 +86,13 @@ function ContactVisual() {
             <circle cx="70" cy="93" r="4" fill="#ffffff" className={styles.dot3} />
           </g>
 
-          <g className={styles.bubbleRight} filter="url(#shadowBubble)">
+          <g
+            className={styles.bubbleRight}
+            filter="url(#shadowBubble)"
+            onClick={() => handleBubbleClick('faq')}
+            onMouseEnter={() => setActiveHint('Click to view Help Center & FAQ')}
+            onMouseLeave={() => setActiveHint('')}
+          >
             <rect x="250" y="85" width="68" height="44" rx="14" fill="url(#bubbleSilverGrad)" />
             <path d="M268 129 L262 138 L278 129 Z" fill="#cbd5e1" />
             <rect x="264" y="99" width="38" height="4" rx="2" fill="#64748b" />
@@ -163,6 +189,11 @@ function ContactVisual() {
             <ellipse cx="170" cy="248" rx="20" ry="2" fill="#38bdf8" opacity="0.6" filter="blur(2px)" />
           </g>
         </svg>
+
+        <div className={styles.onlineStatusBadge}>
+          <span className={styles.statusDot}></span>
+          <span>Live Support Online</span>
+        </div>
       </div>
     </div>
   );

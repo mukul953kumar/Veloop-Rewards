@@ -1,6 +1,10 @@
 @import './variables.css';
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
+html {
+  scroll-behavior: smooth;
+}
+
 *,
 *::before,
 *::after {

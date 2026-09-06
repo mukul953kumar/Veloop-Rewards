@@ -10,24 +10,6 @@
   padding: 2rem 0 3rem;
 }
 
-.viewportWrapper {
-  width: 100%;
-  margin: 0 auto;
-  transition: max-width var(--transition-normal);
-}
-
-.viewportDesktop {
-  max-width: 100%;
-}
-
-.viewportTablet {
-  max-width: 768px;
-}
-
-.viewportMobile {
-  max-width: 420px;
-}
-
 .bannersList {
   display: flex;
   flex-direction: column;
@@ -35,37 +17,12 @@
   width: 100%;
 }
 
-.placeholderCard {
-  background-color: var(--bg-surface);
-  border: 1px dashed var(--border-medium);
-  border-radius: var(--radius-lg);
-  padding: 4rem 2rem;
-  text-align: center;
-}
+@media (max-width: 768px) {
+  .mainContent {
+    padding: 1.25rem 0 2rem;
+  }
 
-.placeholderBadge {
-  display: inline-block;
-  padding: 0.35rem 0.85rem;
-  background: rgba(59, 130, 246, 0.1);
-  border: 1px solid rgba(59, 130, 246, 0.25);
-  border-radius: var(--radius-pill);
-  color: #60a5fa;
-  font-size: 0.8rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.placeholderTitle {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-}
-
-.placeholderText {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  max-width: 500px;
-  margin: 0 auto;
-  line-height: 1.6;
+  .bannersList {
+    gap: 1.5rem;
+  }
 }

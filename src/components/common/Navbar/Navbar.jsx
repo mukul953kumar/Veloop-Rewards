@@ -1,11 +1,21 @@
 import React from 'react';
 import styles from './Navbar.module.css';
 
-function Navbar() {
+function Navbar({ onNavigate }) {
+  const handleLogoClick = () => {
+    if (onNavigate) {
+      onNavigate('home');
+    }
+  };
+
   return (
     <nav className={styles.navbar}>
       <div className={`banner-container ${styles.navContainer}`}>
-        <div className={styles.brandLogo}>
+        <div
+          className={styles.brandLogo}
+          onClick={handleLogoClick}
+          style={{ cursor: 'pointer' }}
+        >
           <span className={styles.logoVeloop}>VELOP</span>
           <span className={styles.logoRewards}>REWARDS</span>
         </div>

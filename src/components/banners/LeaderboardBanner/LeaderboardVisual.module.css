@@ -233,14 +233,14 @@
   color: #fdba74;
 }
 
-@media (max-width: 991px) {
+@media (min-width: 769px) and (max-width: 991px) {
   .visualWrapper {
     min-height: 220px;
     padding-bottom: 0.75rem;
   }
 
   .podiumContainer {
-    max-width: 380px;
+    max-width: 360px;
     gap: 0.5rem;
   }
 
@@ -257,25 +257,69 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .visualWrapper {
-    min-height: 180px;
+    min-height: auto;
+    height: 140px;
+    padding-bottom: 0;
+  }
+
+  .chartBackground {
+    display: none;
+  }
+
+  .glowFloor {
+    height: 30px;
+    bottom: 0;
   }
 
   .podiumContainer {
-    max-width: 320px;
+    max-width: 290px;
     gap: 0.35rem;
   }
 
-  .rankCard {
-    padding: 0.6rem 0.35rem;
+  .trophyAnchor {
+    margin-bottom: 0.35rem;
+  }
+
+  .trophyIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .crownIcon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .stepCenter {
+    min-height: 75px;
+    padding: 0.4rem 0.25rem;
+  }
+
+  .stepLeft {
+    min-height: 62px;
+    padding: 0.35rem 0.25rem;
+  }
+
+  .stepRight {
+    min-height: 52px;
+    padding: 0.35rem 0.25rem;
+  }
+
+  .rankPill {
+    width: 20px;
+    height: 20px;
+    font-size: 0.65rem;
+    margin-bottom: 0.2rem;
   }
 
   .userName {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    margin-bottom: 0.1rem;
   }
 
   .userPoints {
-    font-size: 0.68rem;
+    font-size: 0.64rem;
   }
 }

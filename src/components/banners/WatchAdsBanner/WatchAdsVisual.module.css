@@ -342,7 +342,7 @@
   white-space: nowrap;
 }
 
-@media (max-width: 991px) {
+@media (min-width: 769px) and (max-width: 991px) {
   .visualWrapper {
     min-height: 220px;
   }
@@ -357,28 +357,92 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .visualWrapper {
-    min-height: 180px;
+    min-height: auto;
+    height: 140px;
+    overflow: hidden;
+  }
+
+  .glowRingsOuter {
+    display: none;
+  }
+
+  .glowRingsInner {
+    height: 30px;
+    bottom: 0;
+  }
+
+  .visualComposition {
+    max-width: 290px;
+    height: 100%;
   }
 
   .playerTablet {
-    width: 175px;
-    height: 115px;
+    width: 165px;
+    height: 110px;
     padding: 0.6rem;
+    transform: none;
   }
 
   .playButtonCircle {
-    width: 42px;
-    height: 42px;
+    width: 38px;
+    height: 38px;
+  }
+
+  .playIcon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .pauseIcon {
+    width: 18px;
+    height: 18px;
   }
 
   .walletContainer {
-    width: 110px;
-    right: -8px;
+    width: 105px;
+    right: 0;
+    bottom: 0;
+  }
+
+  .walletBody {
+    padding: 0.65rem 0.55rem;
   }
 
   .walletLogo {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
+  }
+
+  .walletClasp {
+    width: 14px;
+    height: 14px;
+  }
+
+  .coinGroup {
+    top: -16px;
+    right: 0;
+  }
+
+  .coin1 {
+    width: 22px;
+    height: 22px;
+    font-size: 0.5rem;
+  }
+
+  .coin2 {
+    width: 18px;
+    height: 18px;
+    font-size: 0.45rem;
+  }
+
+  .coin3 {
+    width: 16px;
+    height: 16px;
+    font-size: 0.4rem;
+  }
+
+  .coinSide {
+    display: none;
   }
 }

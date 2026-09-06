@@ -9,12 +9,17 @@ function WatchAdsBanner({ data = watchAdsData, onAction }) {
 
   const handleClaim = () => {
     setShowRewardToast(true);
-    if (onAction) {
-      onAction();
-    }
     setTimeout(() => {
       setShowRewardToast(false);
     }, 2200);
+  };
+
+  const handleCtaClick = () => {
+    if (onAction) {
+      onAction();
+    } else {
+      handleClaim();
+    }
   };
 
   return (
@@ -52,7 +57,7 @@ function WatchAdsBanner({ data = watchAdsData, onAction }) {
           <button
             type="button"
             className={styles.ctaButton}
-            onClick={handleClaim}
+            onClick={handleCtaClick}
           >
             <span>{data.ctaText || 'Watch & Earn'}</span>
             <ArrowRight size={16} className={styles.ctaIcon} />
