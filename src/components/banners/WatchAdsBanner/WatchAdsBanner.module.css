@@ -4,8 +4,8 @@
   min-height: 410px;
   max-height: 450px;
   border-radius: var(--radius-lg);
-  background: radial-gradient(circle at 85% 30%, rgba(245, 158, 11, 0.08) 0%, rgba(27, 30, 50, 0.95) 45%, #151726 100%);
-  border: 1px solid rgba(245, 158, 11, 0.2);
+  background: radial-gradient(circle at 85% 30%, rgba(56, 189, 248, 0.08) 0%, rgba(22, 28, 52, 0.95) 45%, #151828 100%);
+  border: 1px solid rgba(56, 189, 248, 0.2);
   overflow: hidden;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
   display: flex;
@@ -14,8 +14,8 @@
 }
 
 .bannerCard:hover {
-  border-color: rgba(245, 158, 11, 0.35);
-  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.55), 0 0 30px rgba(245, 158, 11, 0.06);
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.55), 0 0 30px rgba(56, 189, 248, 0.08);
 }
 
 .bannerGrid {
@@ -49,9 +49,9 @@
   justify-content: center;
   padding: 0.22rem 0.65rem;
   border-radius: var(--radius-sm);
-  background: rgba(245, 158, 11, 0.1);
-  border: 1px solid rgba(245, 158, 11, 0.35);
-  color: #fbbf24;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
   font-weight: 800;
   font-size: 0.8rem;
   letter-spacing: 0.05em;
@@ -63,9 +63,9 @@
   gap: 0.45rem;
   padding: 0.32rem 0.85rem;
   border-radius: var(--radius-pill);
-  background: rgba(245, 158, 11, 0.12);
-  border: 1px solid rgba(245, 158, 11, 0.3);
-  color: #fbbf24;
+  background: rgba(37, 99, 235, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.06em;
@@ -78,8 +78,7 @@
 }
 
 .stageIcon {
-  font-size: 0.85rem;
-  color: #f59e0b;
+  font-size: 0.8rem;
 }
 
 .heading {
@@ -92,46 +91,41 @@
 }
 
 .titleHighlight {
-  color: #f59e0b;
-  display: block;
+  color: #38bdf8;
 }
 
 .description {
   font-size: 0.92rem;
   line-height: 1.55;
   color: #94a3b8;
-  margin-bottom: 1.15rem;
+  margin-bottom: 1.25rem;
   max-width: 480px;
 }
 
-.prizePill {
+.featuresRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.45rem;
+}
+
+.featureBadge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 1rem;
-  border-radius: var(--radius-pill);
-  background: rgba(15, 17, 28, 0.7);
-  border: 1px solid rgba(245, 158, 11, 0.35);
-  color: #e2e8f0;
-  font-size: 0.82rem;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-sm);
+  background: rgba(30, 38, 64, 0.7);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: #cbd5e1;
+  font-size: 0.8rem;
   font-weight: 600;
-  width: fit-content;
-  margin-bottom: 1.35rem;
-  transition: border-color var(--transition-fast);
 }
 
-.prizePill:hover {
-  border-color: rgba(245, 158, 11, 0.6);
-}
-
-.prizeHighlight {
-  color: #f59e0b;
-  font-weight: 700;
-}
-
-.prizeIcon {
-  color: #f59e0b;
-  font-size: 0.9rem;
+.featureIcon {
+  color: #38bdf8;
+  font-size: 0.85rem;
 }
 
 .ctaButton {
@@ -141,21 +135,20 @@
   gap: 0.5rem;
   padding: 0.75rem 1.75rem;
   border-radius: var(--radius-sm);
-  background: rgba(245, 158, 11, 0.08);
-  border: 1px solid rgba(245, 158, 11, 0.5);
-  color: #fbbf24;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #ffffff;
   font-size: 0.92rem;
   font-weight: 700;
   width: fit-content;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
   transition: all var(--transition-normal);
 }
 
 .ctaButton:hover {
-  background: rgba(245, 158, 11, 0.18);
-  border-color: #f59e0b;
-  box-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  box-shadow: 0 6px 22px rgba(56, 189, 248, 0.55);
   transform: translateY(-2px);
-  color: #ffffff;
 }
 
 .ctaIcon {
@@ -192,7 +185,7 @@
     max-width: 100%;
   }
 
-  .prizePill {
+  .featuresRow {
     margin-bottom: 1rem;
   }
 }
@@ -216,9 +209,9 @@
     font-size: 0.82rem;
   }
 
-  .prizePill {
-    font-size: 0.75rem;
-    padding: 0.35rem 0.75rem;
+  .featureBadge {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.65rem;
   }
 
   .ctaButton {

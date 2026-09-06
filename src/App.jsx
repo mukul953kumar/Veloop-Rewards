@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Navbar from './components/common/Navbar/Navbar';
 import PreviewController from './components/common/PreviewController/PreviewController';
 import LeaderboardBanner from './components/banners/LeaderboardBanner/LeaderboardBanner';
+import WatchAdsBanner from './components/banners/WatchAdsBanner/WatchAdsBanner';
+import ContactBanner from './components/banners/ContactBanner/ContactBanner';
 import Footer from './components/common/Footer/Footer';
 import styles from './App.module.css';
 
@@ -33,6 +35,8 @@ function App() {
           <div className={`${styles.viewportWrapper} ${getViewportClass()}`}>
             <section className={styles.bannersList}>
               <LeaderboardBanner />
+              <WatchAdsBanner />
+              <ContactBanner />
             </section>
           </div>
         </div>

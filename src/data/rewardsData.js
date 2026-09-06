@@ -41,12 +41,14 @@ export const watchAdsData = {
 };
 
 export const contactData = {
+  cornerBadge: '3',
   badge: 'CONTACT US',
   title: 'Need Help?',
   titleHighlight: "We're Here.",
   description: 'Have a question, concern, or need assistance? Get in touch with the VELOOP Rewards team.',
   ctaText: 'Contact Support',
   email: 'velooprewardsofficial@gmail.com',
+  boxTitle: "We're here to help",
   links: [
     { label: 'Help Center', href: '#' },
     { label: 'Submit a Ticket', href: '#' }

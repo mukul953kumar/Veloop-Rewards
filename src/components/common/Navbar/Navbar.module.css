@@ -1,7 +1,7 @@
 .navbar {
   width: 100%;
-  padding: 1rem 0;
-  background-color: rgba(22, 24, 39, 0.85);
+  padding: 1.1rem 0;
+  background-color: rgba(22, 24, 39, 0.9);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-subtle);
@@ -19,26 +19,26 @@
 
 .brandLogo {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  align-items: baseline;
+  gap: 0.45rem;
   font-weight: 800;
   font-size: 1.25rem;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  user-select: none;
 }
 
 .logoVeloop {
-  background: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
+  font-weight: 900;
+  letter-spacing: 0.04em;
 }
 
 .logoRewards {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
-  color: var(--text-secondary);
+  letter-spacing: 0.18em;
+  color: #f59e0b;
   text-transform: uppercase;
-  margin-left: 0.25rem;
 }
 
 .navBadge {

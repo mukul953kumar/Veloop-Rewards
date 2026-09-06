@@ -7,13 +7,14 @@ import styles from './LeaderboardBanner.module.css';
 function LeaderboardBanner({ data = leaderboardData, onAction }) {
   return (
     <article className={styles.bannerCard}>
-      <div className={styles.cornerBadge}>01</div>
-
       <div className={styles.bannerGrid}>
         <div className={styles.contentColumn}>
-          <div className={styles.stageBadge}>
-            <Trophy size={14} className={styles.stageIcon} />
-            <span>{data.stageBadge || 'COMPETITION STAGE ACTIVE'}</span>
+          <div className={styles.badgeHeader}>
+            <span className={styles.cornerBadge}>01</span>
+            <div className={styles.stageBadge}>
+              <Trophy size={14} className={styles.stageIcon} />
+              <span>{data.stageBadge || 'COMPETITION STAGE ACTIVE'}</span>
+            </div>
           </div>
 
           <h2 className={styles.heading}>
