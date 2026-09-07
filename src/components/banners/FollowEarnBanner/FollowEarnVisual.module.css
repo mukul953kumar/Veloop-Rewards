@@ -1,0 +1,481 @@
+.visualWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+}
+
+.glowBackdrop {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.35) 0%, rgba(124, 58, 237, 0.15) 50%, transparent 75%);
+  filter: blur(40px);
+  z-index: 1;
+  pointer-events: none;
+  animation: pulseGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.15);
+    opacity: 0.9;
+  }
+}
+
+.visualContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 320px;
+}
+
+.phoneFrame {
+  position: relative;
+  width: 200px;
+  height: 330px;
+  background: #0f1021;
+  border-radius: 32px;
+  border: 3px solid rgba(168, 85, 247, 0.45);
+  box-shadow: 
+    0 20px 45px rgba(0, 0, 0, 0.65),
+    0 0 25px rgba(124, 58, 237, 0.25),
+    inset 0 0 12px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform: rotateY(-6deg) rotateX(4deg) scale(0.98);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  animation: floatPhone 6s ease-in-out infinite alternate;
+}
+
+.phoneFrame:hover {
+  transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+  box-shadow: 
+    0 24px 50px rgba(0, 0, 0, 0.75),
+    0 0 35px rgba(168, 85, 247, 0.35);
+}
+
+@keyframes floatPhone {
+  0% {
+    transform: translateY(0px) rotateY(-6deg) rotateX(4deg);
+  }
+  100% {
+    transform: translateY(-8px) rotateY(-3deg) rotateX(2deg);
+  }
+}
+
+.dynamicIsland {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 54px;
+  height: 12px;
+  background: #000000;
+  border-radius: 10px;
+  z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.phoneScreen {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 10px 10px 10px;
+  height: 100%;
+  background: linear-gradient(180deg, #181432 0%, #101126 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.phoneScreen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.22) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.statusBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.58rem;
+  color: #94a3b8;
+  margin-bottom: 8px;
+  padding: 0 4px;
+  font-weight: 600;
+}
+
+.statusIcons {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.profileCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 6px 0;
+}
+
+.avatarRing {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+  padding: 2px;
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.5);
+  margin-bottom: 6px;
+}
+
+.avatarInner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #1e1b4b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+}
+
+.verifiedBadge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  background: #3b82f6;
+  color: #ffffff;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #0f1021;
+}
+
+.profileNameRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 1px;
+}
+
+.profileName {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.profileHandle {
+  font-size: 0.64rem;
+  color: #c084fc;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.statsRow {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 6px 4px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 10px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statValue {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.statLabel {
+  font-size: 0.52rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.followButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  color: #ffffff;
+  border: 1px solid rgba(192, 132, 252, 0.4);
+  padding: 5px 0;
+  border-radius: 8px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+  transition: all 0.2s ease;
+}
+
+.followButton:hover {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  transform: translateY(-1px);
+}
+
+.followActive {
+  background: rgba(168, 85, 247, 0.18);
+  border-color: rgba(168, 85, 247, 0.5);
+  color: #e9d5ff;
+}
+
+.miniHighlights {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.highlightCircle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.highlightIcon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  color: #d8b4fe;
+}
+
+.highlightLabel {
+  font-size: 0.48rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.floatingBadge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(22, 24, 46, 0.88);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45), 0 0 14px rgba(124, 58, 237, 0.25);
+  backdrop-filter: blur(8px);
+  z-index: 5;
+  cursor: default;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.floatingBadge:hover {
+  transform: scale(1.08) translateY(-2px);
+  border-color: rgba(192, 132, 252, 0.8);
+}
+
+.badgeTopLeft {
+  top: 12px;
+  left: -20px;
+  animation: floatBadge1 4s ease-in-out infinite alternate;
+}
+
+.badgeTopRight {
+  top: 30px;
+  right: -24px;
+  animation: floatBadge2 4.5s ease-in-out infinite alternate;
+}
+
+.badgeBottomLeft {
+  bottom: 28px;
+  left: -24px;
+  animation: floatBadge3 5s ease-in-out infinite alternate;
+}
+
+.badgeBottomRight {
+  bottom: 15px;
+  right: -20px;
+  animation: floatBadge4 4.2s ease-in-out infinite alternate;
+}
+
+@keyframes floatBadge1 {
+  0% { transform: translateY(0px) rotate(-2deg); }
+  100% { transform: translateY(-7px) rotate(1deg); }
+}
+
+@keyframes floatBadge2 {
+  0% { transform: translateY(0px) rotate(2deg); }
+  100% { transform: translateY(-8px) rotate(-2deg); }
+}
+
+@keyframes floatBadge3 {
+  0% { transform: translateY(0px) rotate(-1deg); }
+  100% { transform: translateY(-6px) rotate(2deg); }
+}
+
+@keyframes floatBadge4 {
+  0% { transform: translateY(0px) rotate(3deg); }
+  100% { transform: translateY(-7px) rotate(-1deg); }
+}
+
+.badgeIcon {
+  font-size: 0.85rem;
+}
+
+.badgeText {
+  letter-spacing: 0.01em;
+  color: #f1f5f9;
+}
+
+.flowPill {
+  position: absolute;
+  bottom: -6px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(168, 85, 247, 0.5);
+  border-radius: 999px;
+  padding: 4px 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #c084fc;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  z-index: 6;
+}
+
+.flowArrow {
+  color: #94a3b8;
+  font-size: 0.55rem;
+}
+
+@media (max-width: 991px) {
+  .phoneFrame {
+    width: 175px;
+    height: 290px;
+    border-radius: 26px;
+  }
+
+  .floatingBadge {
+    padding: 3px 6px;
+    font-size: 0.6rem;
+  }
+
+  .badgeTopLeft {
+    left: -10px;
+    top: 5px;
+  }
+
+  .badgeTopRight {
+    right: -10px;
+    top: 15px;
+  }
+
+  .badgeBottomLeft {
+    left: -10px;
+    bottom: 15px;
+  }
+
+  .badgeBottomRight {
+    right: -10px;
+    bottom: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .visualWrapper {
+    min-height: 180px;
+    perspective: none;
+  }
+
+  .glowBackdrop {
+    width: 160px;
+    height: 160px;
+  }
+
+  .phoneFrame {
+    width: 150px;
+    height: 210px;
+    border-radius: 20px;
+    transform: none;
+    animation: none;
+  }
+
+  .miniHighlights {
+    display: none;
+  }
+
+  .statsRow {
+    padding: 3px 2px;
+    margin-bottom: 6px;
+  }
+
+  .avatarRing {
+    width: 34px;
+    height: 34px;
+    margin-bottom: 3px;
+  }
+
+  .avatarInner {
+    font-size: 0.9rem;
+  }
+
+  .statValue {
+    font-size: 0.62rem;
+  }
+
+  .statLabel {
+    font-size: 0.45rem;
+  }
+
+  .floatingBadge {
+    display: none;
+  }
+
+  .flowPill {
+    font-size: 0.52rem;
+    padding: 2px 8px;
+    bottom: -4px;
+  }
+}

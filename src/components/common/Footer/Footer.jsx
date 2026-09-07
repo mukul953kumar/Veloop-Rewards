@@ -113,7 +113,7 @@ function Footer({ onOpenSupport, onNavigate }) {
                   <button
                     type="button"
                     className={styles.footerLink}
-                    onClick={() => showToast('Follow & Earn campaign unlocks in Day 9!')}
+                    onClick={() => handleScrollTo('follow-earn')}
                   >
                     Follow & Earn
                   </button>

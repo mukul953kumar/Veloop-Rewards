@@ -3,6 +3,7 @@ import Navbar from './components/common/Navbar/Navbar';
 import LeaderboardBanner from './components/banners/LeaderboardBanner/LeaderboardBanner';
 import WatchAdsBanner from './components/banners/WatchAdsBanner/WatchAdsBanner';
 import ContactBanner from './components/banners/ContactBanner/ContactBanner';
+import FollowEarnBanner from './components/banners/FollowEarnBanner/FollowEarnBanner';
 import ContactModal from './components/banners/ContactBanner/ContactModal';
 import ComingSoonPage from './pages/ComingSoonPage/ComingSoonPage';
 import Footer from './components/common/Footer/Footer';
@@ -16,9 +17,9 @@ function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
-      if (hash === 'rankings' || hash === 'watch-ads') {
+      if (hash === 'rankings' || hash === 'watch-ads' || hash === 'follow-earn') {
         setCurrentPage(hash);
-      } else if (hash === '' || hash === 'home' || hash === 'leaderboard' || hash === 'contact') {
+      } else if (hash === '' || hash === 'home' || hash === 'leaderboard' || hash === 'contact' || hash === 'social-channels') {
         setCurrentPage('home');
       }
     };
@@ -55,6 +56,9 @@ function App() {
               </div>
               <div id="contact">
                 <ContactBanner onOpenSupport={handleOpenSupport} />
+              </div>
+              <div id="follow-earn">
+                <FollowEarnBanner onAction={() => navigateTo('follow-earn')} />
               </div>
             </section>
           ) : (

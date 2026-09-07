@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Trophy, PlayCircle, Clock, ShieldCheck, Coins, BarChart3, Info } from 'lucide-react';
+import { ArrowLeft, Trophy, PlayCircle, Clock, ShieldCheck, Coins, BarChart3, Info, Users } from 'lucide-react';
 import styles from './ComingSoonPage.module.css';
 
 const featureDetails = {
@@ -56,6 +56,34 @@ const featureDetails = {
         iconClass: styles.cardIconBlue,
         title: 'Clean Streaming Experience',
         text: 'Zero deceptive popups or intrusive overlays. Only user-initiated, high-definition rewarded sponsor videos.'
+      }
+    ]
+  },
+  'follow-earn': {
+    badgeText: 'Social Community Network',
+    badgeClass: styles.badgeFollowEarn,
+    icon: Users,
+    title: 'Follow VELOOP & Unlock Campaign SVEs',
+    statusClass: styles.statusPillPurple,
+    stageText: 'Active Development: Social API Verification',
+    cards: [
+      {
+        icon: Coins,
+        iconClass: styles.cardIconPurple,
+        title: '+500 SVEs Reward Drop',
+        text: 'Participate in verified social media campaigns across our official channels to qualify for community token drops.'
+      },
+      {
+        icon: Users,
+        iconClass: styles.cardIconPurple,
+        title: '5 Official Verified Channels',
+        text: 'Direct links to official Instagram, YouTube, X, Telegram, and LinkedIn hubs with real-time news and community airdrops.'
+      },
+      {
+        icon: ShieldCheck,
+        iconClass: styles.cardIconPurple,
+        title: 'Anti-Sybil Fair Verification',
+        text: 'Rewards are granted via verified participation in authentic engagement campaigns—ensuring fair rewards for genuine members.'
       }
     ]
   }

@@ -56,10 +56,13 @@ export const contactData = {
 };
 
 export const followEarnData = {
+  cornerBadge: '4',
   badge: 'FOLLOW & EARN',
   title: 'Follow & Earn',
+  titleHighlight: 'Stay Connected.',
   description: 'Follow VELOOP Rewards on our official channels and participate in eligible social campaigns to unlock rewards.',
   ctaText: 'Explore Our Channels',
+  disclaimer: 'Participate in eligible social campaigns and unlock rewards.',
   handle: '@velooprewards',
   stats: {
     posts: '128',
@@ -67,7 +70,54 @@ export const followEarnData = {
     following: '8'
   },
   rewardAmount: '+500 SVEs',
-  rewardSubtitle: 'Demo Campaign'
+  rewardSubtitle: 'Demo Campaign',
+  channels: [
+    {
+      id: 'instagram',
+      name: 'Instagram',
+      handle: '@velooprewards',
+      members: '24.5K Followers',
+      url: 'https://instagram.com',
+      color: '#E1306C',
+      tag: 'Official'
+    },
+    {
+      id: 'youtube',
+      name: 'YouTube',
+      handle: 'VELOOP Rewards',
+      members: '18.2K Subscribers',
+      url: 'https://youtube.com',
+      color: '#FF0000',
+      tag: 'Media'
+    },
+    {
+      id: 'x',
+      name: 'X / Twitter',
+      handle: '@velooprewards',
+      members: '31.4K Followers',
+      url: 'https://x.com',
+      color: '#1DA1F2',
+      tag: 'News'
+    },
+    {
+      id: 'telegram',
+      name: 'Telegram',
+      handle: 't.me/velooprewards',
+      members: '15.8K Members',
+      url: 'https://telegram.org',
+      color: '#229ED9',
+      tag: 'Community'
+    },
+    {
+      id: 'linkedin',
+      name: 'LinkedIn',
+      handle: 'VELOOP Rewards',
+      members: '9.4K Followers',
+      url: 'https://linkedin.com',
+      color: '#0A66C2',
+      tag: 'Company'
+    }
+  ]
 };
 
 export const dailyBonusData = {
