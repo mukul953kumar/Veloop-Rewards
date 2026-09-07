@@ -16,7 +16,7 @@ function Navbar({ onNavigate }) {
           onClick={handleLogoClick}
           style={{ cursor: 'pointer' }}
         >
-          <span className={styles.logoVeloop}>VELOP</span>
+          <span className={styles.logoVeloop}>VELOOP</span>
           <span className={styles.logoRewards}>REWARDS</span>
         </div>
         <div className={styles.navBadge}>

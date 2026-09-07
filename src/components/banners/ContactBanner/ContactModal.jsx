@@ -67,7 +67,7 @@ function ContactModal({ isOpen, onClose, initialTab = 'message' }) {
         <div className={styles.modalHeader}>
           <div className={styles.headerTitleGroup}>
             <MessageSquare size={18} className={styles.headerIcon} />
-            <h3 className={styles.headerTitle}>VELOP Support & Help</h3>
+            <h3 className={styles.headerTitle}>VELOOP Support & Help</h3>
           </div>
           <button
             type="button"

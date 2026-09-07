@@ -9,7 +9,7 @@ const policyContents = {
     sections: [
       {
         title: 'Information Collection & Usage',
-        text: 'VELOP Rewards collects minimal personal data required to authenticate your account and verify eligible rewards. We do not sell or monetize personal information.'
+        text: 'VELOOP Rewards collects minimal personal data required to authenticate your account and verify eligible rewards. We do not sell or monetize personal information.'
       },
       {
         title: 'Data Security & Protection',
