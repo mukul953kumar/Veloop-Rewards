@@ -4,6 +4,7 @@ import LeaderboardBanner from './components/banners/LeaderboardBanner/Leaderboar
 import WatchAdsBanner from './components/banners/WatchAdsBanner/WatchAdsBanner';
 import ContactBanner from './components/banners/ContactBanner/ContactBanner';
 import FollowEarnBanner from './components/banners/FollowEarnBanner/FollowEarnBanner';
+import DailyBonusBanner from './components/banners/DailyBonusBanner/DailyBonusBanner';
 import ContactModal from './components/banners/ContactBanner/ContactModal';
 import ComingSoonPage from './pages/ComingSoonPage/ComingSoonPage';
 import Footer from './components/common/Footer/Footer';
@@ -19,7 +20,7 @@ function App() {
       const hash = window.location.hash.replace('#', '');
       if (hash === 'rankings' || hash === 'watch-ads' || hash === 'follow-earn') {
         setCurrentPage(hash);
-      } else if (hash === '' || hash === 'home' || hash === 'leaderboard' || hash === 'contact' || hash === 'social-channels') {
+      } else if (hash === '' || hash === 'home' || hash === 'leaderboard' || hash === 'contact' || hash === 'social-channels' || hash === 'daily-bonus') {
         setCurrentPage('home');
       }
     };
@@ -59,6 +60,9 @@ function App() {
               </div>
               <div id="follow-earn">
                 <FollowEarnBanner />
+              </div>
+              <div id="daily-bonus">
+                <DailyBonusBanner />
               </div>
             </section>
           ) : (

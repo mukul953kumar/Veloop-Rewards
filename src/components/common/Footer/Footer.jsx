@@ -104,7 +104,7 @@ function Footer({ onOpenSupport, onNavigate }) {
                   <button
                     type="button"
                     className={styles.footerLink}
-                    onClick={() => showToast('Daily Bonus banner unlocks in Day 11!')}
+                    onClick={() => handleScrollTo('daily-bonus')}
                   >
                     Daily Bonus
                   </button>

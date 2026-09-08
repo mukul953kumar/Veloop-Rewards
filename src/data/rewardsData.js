@@ -121,20 +121,27 @@ export const followEarnData = {
 };
 
 export const dailyBonusData = {
+  cornerBadge: '5',
   badge: 'DAILY BONUS',
   title: 'Your Daily Bonus Is Waiting',
+  titleHighlight: "Claim Today's Reward.",
   description: 'Check in regularly and claim your available daily bonus before the opportunity resets.',
   ctaText: 'Claim Bonus',
   bonusAmount: '+25 GEMS',
   bonusStatus: 'Available Now',
   completedDays: 6,
+  totalDays: 7,
+  resetHours: 14,
+  resetMinutes: 23,
+  resetSeconds: 45,
   streakDays: [
-    { day: 1, completed: true },
-    { day: 2, completed: true },
-    { day: 3, completed: true },
-    { day: 4, completed: true },
-    { day: 5, completed: true },
-    { day: 6, completed: true },
-    { day: 7, completed: false }
+    { day: 1, reward: '+10', completed: true },
+    { day: 2, reward: '+15', completed: true },
+    { day: 3, reward: '+20', completed: true },
+    { day: 4, reward: '+20', completed: true },
+    { day: 5, reward: '+25', completed: true },
+    { day: 6, reward: '+25', completed: true, isCurrent: true },
+    { day: 7, reward: '+100', completed: false, isMega: true }
   ]
 };
+
