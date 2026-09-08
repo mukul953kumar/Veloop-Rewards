@@ -1,0 +1,508 @@
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 12, 24, 0.82);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modalDialog {
+  width: 100%;
+  max-width: 620px;
+  max-height: 90vh;
+  background: radial-gradient(circle at 50% 10%, rgba(30, 27, 75, 0.95) 0%, rgba(18, 20, 38, 0.98) 60%, #121324 100%);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(124, 58, 237, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.headerTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.headerIcon {
+  color: #c084fc;
+}
+
+.headerTitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.closeButton {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+
+/* Tabs */
+.modalTabs {
+  display: flex;
+  padding: 0.75rem 1.5rem 0;
+  gap: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(14, 16, 32, 0.4);
+}
+
+.tabBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.1rem;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tabBtn:hover {
+  color: #e2e8f0;
+}
+
+.tabBtnActive {
+  color: #c084fc;
+  border-bottom-color: #a855f7;
+}
+
+.tabCount {
+  font-size: 0.7rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+}
+
+.tabBtnActive .tabCount {
+  background: rgba(168, 85, 247, 0.25);
+  color: #f3e8ff;
+}
+
+/* Modal Body */
+.modalBody {
+  padding: 1.25rem 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Channels Tab Content */
+.channelsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.channelCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+}
+
+.channelCard:hover {
+  background: rgba(168, 85, 247, 0.08);
+  border-color: rgba(168, 85, 247, 0.3);
+  transform: translateY(-1px);
+}
+
+.channelCardLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.channelIconWrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+}
+
+.channelMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.channelNameRow {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.channelName {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.officialTag {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  background: rgba(59, 130, 246, 0.18);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.channelSubline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.74rem;
+  color: #94a3b8;
+}
+
+.copyHandleBtn {
+  background: none;
+  border: none;
+  color: #c084fc;
+  cursor: pointer;
+  font-size: 0.72rem;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: color 0.15s ease;
+}
+
+.copyHandleBtn:hover {
+  color: #e9d5ff;
+  text-decoration: underline;
+}
+
+.channelActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.followToggleBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  color: #ffffff;
+}
+
+.followToggleBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35);
+}
+
+.followedBtn {
+  background: rgba(168, 85, 247, 0.18);
+  border-color: rgba(168, 85, 247, 0.5);
+  color: #e9d5ff;
+}
+
+.openLinkBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.openLinkBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+/* Campaigns Tab Content */
+.campaignsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.campaignCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.campaignCard:hover {
+  border-color: rgba(192, 132, 252, 0.45);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.campaignHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.campaignTitleWrap {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.campaignBadgeIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(168, 85, 247, 0.18);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c084fc;
+}
+
+.campaignTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.campaignRewardPill {
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: rgba(168, 85, 247, 0.2);
+  border: 1px solid rgba(192, 132, 252, 0.4);
+  color: #f3e8ff;
+  flex-shrink: 0;
+}
+
+.campaignDesc {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.progressBarContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.progressLabelRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.progressBarTrack {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, #7c3aed 0%, #a855f7 100%);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.claimButton {
+  align-self: flex-end;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 1.1rem;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border: 1px solid rgba(192, 132, 252, 0.4);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.claimButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+}
+
+.claimButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.claimedState {
+  background: rgba(16, 185, 129, 0.16);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #34d399;
+}
+
+/* Modal Footer */
+.modalFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(14, 16, 32, 0.6);
+  font-size: 0.74rem;
+  color: #94a3b8;
+}
+
+.disclaimerText {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+  .modalDialog {
+    max-height: 94vh;
+    border-radius: var(--radius-lg);
+  }
+
+  .modalHeader {
+    padding: 1rem 1.1rem;
+  }
+
+  .headerTitle {
+    font-size: 0.98rem;
+  }
+
+  .modalTabs {
+    padding: 0.5rem 1.1rem 0;
+  }
+
+  .tabBtn {
+    padding: 0.55rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .modalBody {
+    padding: 1rem 1.1rem;
+    gap: 0.75rem;
+  }
+
+  .channelCard {
+    padding: 0.65rem 0.75rem;
+  }
+
+  .channelIconWrap {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
+  }
+
+  .channelName {
+    font-size: 0.84rem;
+  }
+
+  .channelSubline {
+    font-size: 0.68rem;
+  }
+
+  .followToggleBtn {
+    padding: 0.32rem 0.65rem;
+    font-size: 0.72rem;
+  }
+
+  .modalFooter {
+    padding: 0.75rem 1.1rem;
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: flex-start;
+  }
+}

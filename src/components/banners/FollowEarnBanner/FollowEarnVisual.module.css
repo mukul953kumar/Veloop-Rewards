@@ -128,6 +128,90 @@
   gap: 3px;
 }
 
+.notifBubble {
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(168, 85, 247, 0.5);
+  border-radius: 8px;
+  padding: 4px 6px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  animation: notifSlide 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes notifSlide {
+  from { opacity: 0; transform: translateY(-6px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.notifIconWrap {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: rgba(168, 85, 247, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.notifContent {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 1.15;
+}
+
+.notifTitle {
+  font-size: 0.54rem;
+  font-weight: 800;
+  color: #f3e8ff;
+  letter-spacing: 0.02em;
+}
+
+.notifBody {
+  font-size: 0.46rem;
+  color: #c084fc;
+}
+
+.bellRinging {
+  animation: ring 0.6s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+@keyframes ring {
+  0% { transform: rotate(0); }
+  20% { transform: rotate(15deg); }
+  40% { transform: rotate(-15deg); }
+  60% { transform: rotate(10deg); }
+  80% { transform: rotate(-10deg); }
+  100% { transform: rotate(0); }
+}
+
+.reactionBurst {
+  position: absolute;
+  pointer-events: none;
+  animation: burstFloat 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  z-index: 15;
+}
+
+@keyframes burstFloat {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(0.6);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translateY(-22px) scale(1.15);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.9);
+  }
+}
+
 .profileCard {
   display: flex;
   flex-direction: column;
@@ -425,48 +509,98 @@
 
 @media (max-width: 768px) {
   .visualWrapper {
-    min-height: 180px;
+    min-height: 110px;
+    height: 110px;
     perspective: none;
   }
 
   .glowBackdrop {
-    width: 160px;
-    height: 160px;
+    width: 140px;
+    height: 140px;
+    filter: blur(25px);
   }
 
   .phoneFrame {
-    width: 150px;
-    height: 210px;
-    border-radius: 20px;
+    width: 100%;
+    max-width: 290px;
+    height: 98px;
+    border-radius: 18px;
     transform: none;
     animation: none;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55), 0 0 20px rgba(124, 58, 237, 0.2);
+    border-width: 2px;
+  }
+
+  .phoneScreen {
+    padding: 10px 12px;
+    justify-content: center;
+  }
+
+  .statusBar {
+    display: none;
+  }
+
+  .dynamicIsland {
+    display: none;
+  }
+
+  .notifBubble {
+    display: none;
+  }
+
+  .profileCard {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    gap: 10px;
+  }
+
+  .avatarRing {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .avatarInner {
+    font-size: 1rem;
+  }
+
+  .profileInfoWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .profileName {
+    font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .profileHandle {
+    font-size: 0.65rem;
+    margin-bottom: 0;
+  }
+
+  .statsRow {
+    display: none;
+  }
+
+  .followButton {
+    width: auto;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.72rem;
+    flex-shrink: 0;
   }
 
   .miniHighlights {
     display: none;
-  }
-
-  .statsRow {
-    padding: 3px 2px;
-    margin-bottom: 6px;
-  }
-
-  .avatarRing {
-    width: 34px;
-    height: 34px;
-    margin-bottom: 3px;
-  }
-
-  .avatarInner {
-    font-size: 0.9rem;
-  }
-
-  .statValue {
-    font-size: 0.62rem;
-  }
-
-  .statLabel {
-    font-size: 0.45rem;
   }
 
   .floatingBadge {
@@ -474,8 +608,6 @@
   }
 
   .flowPill {
-    font-size: 0.52rem;
-    padding: 2px 8px;
-    bottom: -4px;
+    display: none;
   }
 }

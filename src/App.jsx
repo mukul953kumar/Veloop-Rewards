@@ -58,7 +58,7 @@ function App() {
                 <ContactBanner onOpenSupport={handleOpenSupport} />
               </div>
               <div id="follow-earn">
-                <FollowEarnBanner onAction={() => navigateTo('follow-earn')} />
+                <FollowEarnBanner />
               </div>
             </section>
           ) : (

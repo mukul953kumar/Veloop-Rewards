@@ -18,10 +18,17 @@ import styles from './FollowEarnVisual.module.css';
 function FollowEarnVisual({ onFollowToggle }) {
   const [isFollowing, setIsFollowing] = useState(true);
   const [bellActive, setBellActive] = useState(true);
+  const [isRinging, setIsRinging] = useState(false);
+  const [showBurst, setShowBurst] = useState(false);
+  const [showNotif, setShowNotif] = useState(true);
 
   const handleFollowClick = () => {
     const newState = !isFollowing;
     setIsFollowing(newState);
+    if (newState) {
+      setShowBurst(true);
+      setTimeout(() => setShowBurst(false), 1200);
+    }
     if (onFollowToggle) {
       onFollowToggle(newState);
     }
@@ -29,7 +36,12 @@ function FollowEarnVisual({ onFollowToggle }) {
 
   const handleBellClick = (e) => {
     e.stopPropagation();
-    setBellActive(!bellActive);
+    const nextBell = !bellActive;
+    setBellActive(nextBell);
+    if (nextBell) {
+      setIsRinging(true);
+      setTimeout(() => setIsRinging(false), 1200);
+    }
   };
 
   return (
@@ -72,6 +84,26 @@ function FollowEarnVisual({ onFollowToggle }) {
               </div>
             </div>
 
+            {/* Notification Bubble Alert */}
+            {showNotif && (
+              <div className={styles.notifBubble}>
+                <div className={styles.notifIconWrap}>
+                  <Sparkles size={10} color="#fcd34d" />
+                </div>
+                <div className={styles.notifContent}>
+                  <span className={styles.notifTitle}>Genesis Campaign</span>
+                  <span className={styles.notifBody}>+500 SVEs available now</span>
+                </div>
+              </div>
+            )}
+
+            {/* Celebration Burst Floating Micro-Interaction */}
+            {showBurst && (
+              <div className={styles.reactionBurst} style={{ top: '35%', left: '42%' }}>
+                <Heart size={20} fill="#ec4899" color="#f472b6" />
+              </div>
+            )}
+
             {/* Profile Content */}
             <div className={styles.profileCard}>
               <div className={styles.avatarRing}>
@@ -81,10 +113,12 @@ function FollowEarnVisual({ onFollowToggle }) {
                 </div>
               </div>
 
-              <div className={styles.profileNameRow}>
-                <span className={styles.profileName}>VELOOP Rewards</span>
+              <div className={styles.profileInfoWrap}>
+                <div className={styles.profileNameRow}>
+                  <span className={styles.profileName}>VELOOP Rewards</span>
+                </div>
+                <span className={styles.profileHandle}>@velooprewards</span>
               </div>
-              <span className={styles.profileHandle}>@velooprewards</span>
 
               {/* Stats Bar */}
               <div className={styles.statsRow}>
@@ -93,7 +127,7 @@ function FollowEarnVisual({ onFollowToggle }) {
                   <span className={styles.statLabel}>Posts</span>
                 </div>
                 <div className={styles.statItem}>
-                  <span className={styles.statValue}>24.5K</span>
+                  <span className={styles.statValue}>{isFollowing ? '24.5K' : '24.4K'}</span>
                   <span className={styles.statLabel}>Followers</span>
                 </div>
                 <div className={styles.statItem}>
@@ -117,6 +151,7 @@ function FollowEarnVisual({ onFollowToggle }) {
                       size={11}
                       fill={bellActive ? '#c084fc' : 'none'}
                       onClick={handleBellClick}
+                      className={isRinging ? styles.bellRinging : ''}
                       style={{ marginLeft: 3, cursor: 'pointer' }}
                     />
                   </>

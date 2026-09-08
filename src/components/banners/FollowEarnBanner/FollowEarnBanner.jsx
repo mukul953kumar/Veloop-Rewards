@@ -4,7 +4,6 @@ import {
   ArrowRight, 
   ShieldCheck, 
   ExternalLink, 
-  CheckCircle2, 
   Sparkles,
   Info
 } from 'lucide-react';
@@ -16,6 +15,7 @@ import {
   FaLinkedin 
 } from 'react-icons/fa6';
 import FollowEarnVisual from './FollowEarnVisual';
+import CampaignModal from './CampaignModal';
 import { followEarnData } from '../../../data/rewardsData';
 import styles from './FollowEarnBanner.module.css';
 
@@ -29,6 +29,8 @@ const channelIconMap = {
 
 function FollowEarnBanner({ data = followEarnData, onAction }) {
   const [toastMessage, setToastMessage] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalTab, setModalTab] = useState('campaigns');
 
   const showToast = (message) => {
     setToastMessage(message);
@@ -37,24 +39,30 @@ function FollowEarnBanner({ data = followEarnData, onAction }) {
     }, 2500);
   };
 
+  const handleOpenModal = (tab = 'campaigns') => {
+    setModalTab(tab);
+    setIsModalOpen(true);
+    if (onAction) {
+      onAction(tab);
+    }
+  };
+
   const handleChannelClick = (e, channel) => {
     e.preventDefault();
-    showToast(`Exploring official ${channel.name} channel: ${channel.handle}`);
-    if (onAction) {
-      onAction(channel.id);
-    }
+    handleOpenModal('channels');
+    showToast(`Viewing official ${channel.name} channel details`);
   };
 
   const handleCtaClick = () => {
-    if (onAction) {
-      onAction('explore');
-    } else {
-      showToast('Opening official VELOOP social campaigns hub...');
-    }
+    handleOpenModal('campaigns');
   };
 
   const handleFollowToggle = (isFollowing) => {
-    showToast(isFollowing ? 'Subscribed to VELOOP Rewards official updates!' : 'Notifications muted.');
+    showToast(isFollowing ? 'Subscribed to VELOOP Rewards updates!' : 'Notifications muted.');
+  };
+
+  const handleClaimReward = (campaignId) => {
+    showToast('🎉 Campaign reward verified and added to your balance!');
   };
 
   return (
@@ -83,6 +91,7 @@ function FollowEarnBanner({ data = followEarnData, onAction }) {
             type="button"
             className={styles.ctaButton}
             onClick={handleCtaClick}
+            aria-label="Explore our official social channels"
           >
             <span>{data.ctaText || 'Explore Our Channels'}</span>
             <ArrowRight size={17} className={styles.ctaIcon} />
@@ -102,7 +111,13 @@ function FollowEarnBanner({ data = followEarnData, onAction }) {
         {/* Right Column: Reward Teaser & Social Channels */}
         <div className={styles.actionColumn}>
           {/* Reward Teaser Card */}
-          <div className={styles.rewardTeaserCard}>
+          <div
+            className={styles.rewardTeaserCard}
+            onClick={() => handleOpenModal('campaigns')}
+            role="button"
+            tabIndex={0}
+            title="Click to view active reward campaigns"
+          >
             <div className={styles.rewardIconWrap}>
               <Gift size={20} />
             </div>
@@ -114,6 +129,9 @@ function FollowEarnBanner({ data = followEarnData, onAction }) {
                 <span className={styles.rewardAmount}>{data.rewardAmount || '+500 SVEs'}</span>
                 <span className={styles.rewardBadge}>{data.rewardSubtitle || 'Demo Campaign'}</span>
               </div>
+            </div>
+            <div className={styles.rewardCardArrow}>
+              <ArrowRight size={14} />
             </div>
           </div>
 
@@ -136,10 +154,11 @@ function FollowEarnBanner({ data = followEarnData, onAction }) {
                 return (
                   <div
                     key={channel.id}
-                    className={styles.channelItem}
+                    className={`${styles.channelItem} ${styles[`channel_${channel.id}`] || ''}`}
                     onClick={(e) => handleChannelClick(e, channel)}
                     role="button"
                     tabIndex={0}
+                    title={`Click to view ${channel.name} channel`}
                   >
                     <div className={styles.channelLeft}>
                       <span className={styles.channelIcon} style={{ color: channel.color }}>
@@ -153,7 +172,7 @@ function FollowEarnBanner({ data = followEarnData, onAction }) {
 
                     <div className={styles.channelRight}>
                       <span className={styles.channelCount}>{channel.members}</span>
-                      <span className={styles.channelFollowAction} title={`Visit ${channel.name}`}>
+                      <span className={styles.channelFollowAction} title={`View ${channel.name}`}>
                         <ExternalLink size={11} />
                       </span>
                     </div>
@@ -165,12 +184,22 @@ function FollowEarnBanner({ data = followEarnData, onAction }) {
         </div>
       </div>
 
+      {/* Toast Notice */}
       {toastMessage && (
         <div className={styles.toastNotice}>
           <Info size={15} color="#c084fc" />
           <span>{toastMessage}</span>
         </div>
       )}
+
+      {/* Interactive Campaign & Channels Modal */}
+      <CampaignModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        channels={data.channels || []}
+        initialTab={modalTab}
+        onClaimReward={handleClaimReward}
+      />
     </article>
   );
 }
