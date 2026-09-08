@@ -7,7 +7,7 @@
 
 .mainContent {
   flex: 1;
-  padding: 2rem 0 3rem;
+  padding: 1.5rem 0 3.5rem;
 }
 
 .bannersList {
@@ -17,12 +17,57 @@
   width: 100%;
 }
 
+.bannerSectionItem {
+  width: 100%;
+  scroll-margin-top: 140px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.bannerHighlighted {
+  animation: pulseCardHighlight 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes pulseCardHighlight {
+  0% {
+    transform: scale(0.99);
+    filter: brightness(1.15) drop-shadow(0 0 25px rgba(245, 158, 11, 0.3));
+  }
+  50% {
+    transform: scale(1.008);
+    filter: brightness(1.2) drop-shadow(0 0 35px rgba(245, 158, 11, 0.45));
+  }
+  100% {
+    transform: scale(1);
+    filter: none;
+  }
+}
+
+.focusViewContainer {
+  width: 100%;
+  animation: fadeInFocus 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeInFocus {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 @media (max-width: 768px) {
   .mainContent {
-    padding: 1.25rem 0 2rem;
+    padding: 1rem 0 2.5rem;
   }
 
   .bannersList {
     gap: 1.5rem;
+  }
+
+  .bannerSectionItem {
+    scroll-margin-top: 120px;
   }
 }

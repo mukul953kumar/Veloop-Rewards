@@ -3,6 +3,7 @@
   width: 100%;
   min-height: 410px;
   max-height: 450px;
+  height: 430px;
   border-radius: var(--radius-lg);
   background: radial-gradient(circle at 50% 30%, rgba(59, 130, 246, 0.08) 0%, rgba(20, 25, 46, 0.95) 45%, #151828 100%);
   border: 1px solid rgba(148, 163, 184, 0.2);
@@ -285,6 +286,7 @@
   .bannerCard {
     min-height: 380px;
     max-height: 540px;
+    height: auto;
   }
 
   .bannerGrid {
