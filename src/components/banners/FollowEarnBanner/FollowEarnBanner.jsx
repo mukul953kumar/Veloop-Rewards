@@ -68,7 +68,6 @@ function FollowEarnBanner({ data = followEarnData, onAction }) {
   return (
     <article className={styles.bannerCard}>
       <div className={styles.bannerGrid}>
-        {/* Left Column: Content */}
         <div className={styles.contentColumn}>
           <div className={styles.badgeHeader}>
             <span className={styles.cornerBadge}>{data.cornerBadge || '4'}</span>
@@ -103,14 +102,11 @@ function FollowEarnBanner({ data = followEarnData, onAction }) {
           </div>
         </div>
 
-        {/* Middle Column: Visual Mockup */}
         <div className={styles.visualColumn}>
           <FollowEarnVisual onFollowToggle={handleFollowToggle} />
         </div>
 
-        {/* Right Column: Reward Teaser & Social Channels */}
         <div className={styles.actionColumn}>
-          {/* Reward Teaser Card */}
           <div
             className={styles.rewardTeaserCard}
             onClick={() => handleOpenModal('campaigns')}
@@ -135,7 +131,6 @@ function FollowEarnBanner({ data = followEarnData, onAction }) {
             </div>
           </div>
 
-          {/* Official Social Channels Card */}
           <div className={styles.channelsContainer}>
             <div className={styles.channelsHeader}>
               <span className={styles.channelsTitle}>
@@ -184,7 +179,6 @@ function FollowEarnBanner({ data = followEarnData, onAction }) {
         </div>
       </div>
 
-      {/* Toast Notice */}
       {toastMessage && (
         <div className={styles.toastNotice}>
           <Info size={15} color="#c084fc" />
@@ -192,7 +186,6 @@ function FollowEarnBanner({ data = followEarnData, onAction }) {
         </div>
       )}
 
-      {/* Interactive Campaign & Channels Modal */}
       <CampaignModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}

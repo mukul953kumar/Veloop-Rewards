@@ -124,7 +124,6 @@ function CampaignModal({ isOpen, onClose, channels = [], initialTab = 'channels'
   return (
     <div className={styles.modalOverlay} onClick={onClose}>
       <div className={styles.modalDialog} onClick={(e) => e.stopPropagation()}>
-        {/* Header */}
         <div className={styles.modalHeader}>
           <div className={styles.headerTitleGroup}>
             <Sparkles size={20} className={styles.headerIcon} />
@@ -140,7 +139,6 @@ function CampaignModal({ isOpen, onClose, channels = [], initialTab = 'channels'
           </button>
         </div>
 
-        {/* Tabs */}
         <div className={styles.modalTabs}>
           <button
             type="button"
@@ -163,7 +161,6 @@ function CampaignModal({ isOpen, onClose, channels = [], initialTab = 'channels'
           </button>
         </div>
 
-        {/* Modal Body */}
         <div className={styles.modalBody}>
           {activeTab === 'channels' ? (
             <div className={styles.channelsGrid}>
@@ -310,7 +307,6 @@ function CampaignModal({ isOpen, onClose, channels = [], initialTab = 'channels'
           )}
         </div>
 
-        {/* Footer */}
         <div className={styles.modalFooter}>
           <p className={styles.disclaimerText}>
             <ShieldCheck size={14} color="#10b981" />

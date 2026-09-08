@@ -49,7 +49,6 @@ function FollowEarnVisual({ onFollowToggle }) {
       <div className={styles.glowBackdrop}></div>
 
       <div className={styles.visualContent}>
-        {/* Floating Badges */}
         <div className={`${styles.floatingBadge} ${styles.badgeTopLeft}`}>
           <Users size={13} className={styles.badgeIcon} color="#c084fc" />
           <span className={styles.badgeText}>24.5K Users</span>
@@ -70,12 +69,10 @@ function FollowEarnVisual({ onFollowToggle }) {
           <span className={styles.badgeText}>+500 SVEs</span>
         </div>
 
-        {/* 3D Smartphone Mockup */}
         <div className={styles.phoneFrame}>
           <div className={styles.dynamicIsland}></div>
 
           <div className={styles.phoneScreen}>
-            {/* Status Bar */}
             <div className={styles.statusBar}>
               <span>09:41</span>
               <div className={styles.statusIcons}>
@@ -84,7 +81,6 @@ function FollowEarnVisual({ onFollowToggle }) {
               </div>
             </div>
 
-            {/* Notification Bubble Alert */}
             {showNotif && (
               <div className={styles.notifBubble}>
                 <div className={styles.notifIconWrap}>
@@ -97,14 +93,12 @@ function FollowEarnVisual({ onFollowToggle }) {
               </div>
             )}
 
-            {/* Celebration Burst Floating Micro-Interaction */}
             {showBurst && (
               <div className={styles.reactionBurst} style={{ top: '35%', left: '42%' }}>
                 <Heart size={20} fill="#ec4899" color="#f472b6" />
               </div>
             )}
 
-            {/* Profile Content */}
             <div className={styles.profileCard}>
               <div className={styles.avatarRing}>
                 <div className={styles.avatarInner}>V</div>
@@ -120,7 +114,6 @@ function FollowEarnVisual({ onFollowToggle }) {
                 <span className={styles.profileHandle}>@velooprewards</span>
               </div>
 
-              {/* Stats Bar */}
               <div className={styles.statsRow}>
                 <div className={styles.statItem}>
                   <span className={styles.statValue}>128</span>
@@ -136,7 +129,6 @@ function FollowEarnVisual({ onFollowToggle }) {
                 </div>
               </div>
 
-              {/* Action Button */}
               <button
                 type="button"
                 className={`${styles.followButton} ${isFollowing ? styles.followActive : ''}`}
@@ -163,7 +155,6 @@ function FollowEarnVisual({ onFollowToggle }) {
                 )}
               </button>
 
-              {/* Story Highlights */}
               <div className={styles.miniHighlights}>
                 <div className={styles.highlightCircle}>
                   <div className={styles.highlightIcon}>
@@ -188,7 +179,6 @@ function FollowEarnVisual({ onFollowToggle }) {
           </div>
         </div>
 
-        {/* Bottom Flow Progression Pill */}
         <div className={styles.flowPill}>
           <span>Follow</span>
           <span className={styles.flowArrow}>→</span>

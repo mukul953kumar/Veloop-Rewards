@@ -28,7 +28,6 @@
   gap: 1.75rem;
 }
 
-/* Left Column: Content */
 .contentColumn {
   display: flex;
   flex-direction: column;
@@ -154,7 +153,6 @@
   color: #a78bfa;
 }
 
-/* Middle Column: Visual */
 .visualColumn {
   display: flex;
   align-items: center;
@@ -164,7 +162,6 @@
   z-index: 5;
 }
 
-/* Right Column: Channels & Reward Teaser */
 .actionColumn {
   display: flex;
   flex-direction: column;
@@ -174,7 +171,6 @@
   z-index: 5;
 }
 
-/* Reward Teaser Card */
 .rewardTeaserCard {
   background: linear-gradient(135deg, rgba(30, 27, 75, 0.75) 0%, rgba(20, 22, 45, 0.85) 100%);
   border: 1px solid rgba(168, 85, 247, 0.3);
@@ -268,7 +264,6 @@
   color: #d8b4fe;
 }
 
-/* Social Channels Container */
 .channelsContainer {
   background: rgba(17, 19, 36, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -341,7 +336,6 @@
   transform: translateY(-2px) translateX(3px);
 }
 
-/* Branded Hover Halo Animations */
 .channel_instagram:hover {
   background: rgba(225, 48, 108, 0.12);
   border-color: rgba(225, 48, 108, 0.55);
@@ -439,7 +433,6 @@
   transform: scale(1.08);
 }
 
-/* Toast Notification */
 .toastNotice {
   position: absolute;
   bottom: 1rem;
@@ -466,14 +459,11 @@
   to { opacity: 1; transform: translate(-50%, 0); }
 }
 
-/* ==========================================================================
-   BREAKPOINT: TABLET (769px - 991px)
-   Height Constraint: 380px – 540px
-   ========================================================================== */
 @media (min-width: 769px) and (max-width: 991px) {
   .bannerCard {
     min-height: 380px;
     max-height: 540px;
+    height: auto;
   }
 
   .bannerGrid {
@@ -502,11 +492,6 @@
   }
 }
 
-/* ==========================================================================
-   BREAKPOINT: MOBILE (<= 768px)
-   Height Constraint: 330px – 520px
-   Strict: Zero Internal Scrollbars, Beautiful Vertical Harmony
-   ========================================================================== */
 @media (max-width: 768px) {
   .bannerCard {
     min-height: 330px;
@@ -520,7 +505,7 @@
     justify-content: space-between;
     padding: 1.25rem 1.1rem;
     gap: 0.65rem;
-    overflow: hidden; /* Prevent internal scrollbars */
+    overflow: hidden;
   }
 
   .contentColumn {
@@ -563,7 +548,6 @@
     display: none;
   }
 
-  /* Compact Prominent Visual for Mobile */
   .visualColumn {
     width: 100%;
     height: 140px;
@@ -572,7 +556,6 @@
     margin: 0.2rem 0;
   }
 
-  /* Action Column Streamlined */
   .actionColumn {
     width: 100%;
     height: auto;
@@ -604,7 +587,6 @@
     padding: 0.1rem 0.4rem;
   }
 
-  /* Channels Container turns into a quick touch strip */
   .channelsContainer {
     padding: 0.45rem 0.65rem;
     gap: 0.35rem;
@@ -659,7 +641,6 @@
     display: none;
   }
 
-  /* High-Contrast Full-Width Mobile CTA */
   .ctaButton {
     width: 100%;
     padding: 0.65rem 1rem;
@@ -669,7 +650,6 @@
   }
 }
 
-/* Extra small mobile screens (<= 380px) */
 @media (max-width: 380px) {
   .bannerGrid {
     padding: 1rem 0.85rem;
